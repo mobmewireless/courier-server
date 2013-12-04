@@ -1,0 +1,24 @@
+<p>Your <%= @device.device_type %> device is ready to receive messages from this server.</p>
+
+<dl class="dl-horizontal">
+  <dt>GCM Registration ID</dt>
+  <dd><code class='gcm-registration-id'><%= @device.push_id %></code></dd>
+</dl>
+
+<legend>Send a test message</legend>
+
+<p>You can try sending a test message to this device. Type in something below, and push send. You should receive the
+  message on your phone momentarily.</p>
+
+<%= form_tag(send_message_device_url(@device), role: 'form') do %>
+  <div class='form-group'>
+    <%= label_tag(:message, nil) %>
+    <%= text_area_tag(:message, nil, placeholder: 'Type in text to send to your device.', class: 'form-control') %>
+  </div>
+
+  <%= button_tag('Push to device', class: 'btn btn-default') %>
+<% end %>
+
+<br/><legend>Messages Sent</legend>
+
+<%= link_to 'Messages pushed to this device', device_messages_url(@device) %>

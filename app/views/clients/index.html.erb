@@ -1,0 +1,24 @@
+<table class='table'>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Access Token</th>
+    <th>Links</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.name %></td>
+      <td><code><%= client.access_token %></code></td>
+      <td>
+        <%= link_to 'Messages pushed', client_messages_url(client) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to 'Add a new client', new_client_url %>
+</div>

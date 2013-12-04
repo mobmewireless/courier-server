@@ -1,0 +1,8 @@
+<p>
+  You have <%= pluralize(@stats[:device_count], 'device') %>
+  of which <%= pluralize(@stats[:registered_device_count], 'is', 'are') %> registered.
+</p>
+
+<p>You have <%= pluralize(@stats[:client_count], 'registered client') %>.</p>
+<p>A total of <%= pluralize(@stats[:message_count], 'message has', 'messages have') %> been pushed through this server.</p>
+<p><strong>Use the menu above to <em>do</em> things!</strong></p>

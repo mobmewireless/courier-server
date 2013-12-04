@@ -1,0 +1,19 @@
+<%= form_for(@client, html: { class: 'form-horizontal' }) do |f| %>
+  <!-- TODO: Show errors properly when they occur. Right now it looks pretty stupid. -->
+  <% @client.errors.full_messages.each do |message| %>
+    <%= message %><br/>
+  <% end %>
+
+  <div class='form-group'>
+    <%= f.label(:name, nil, class: 'col-lg-2 control-label') %>
+    <div class='col-lg-10'>
+      <%= f.text_field(:name, class: 'form-control', placeholder: 'Client Name [ A-Z a-z _ - ]') %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-offset-2 col-lg-10">
+      <button type="submit" class="btn btn-default">Create Client</button>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<table class='table'>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Registered?</th>
+    <th>Links</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @devices.each do |device| %>
+    <tr>
+      <td><%= device.name %></td>
+      <td><%= device.registered? ? 'Yes' : 'No' %></td>
+      <td>
+        <%= link_to 'More Info', device_url(device) %>
+        <%= link_to 'Messages pushed', device_messages_url(device) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to 'Add a new device', new_device_url %>
+</div>

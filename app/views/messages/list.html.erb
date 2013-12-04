@@ -1,0 +1,21 @@
+<table class='table'>
+  <thead>
+  <tr>
+    <th>Content</th>
+    <th>Client</th>
+    <th>Device</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @messages.each do |message| %>
+    <tr>
+      <td><%= message.content %></td>
+      <td><%= message.client.try(:name) %></td>
+      <td><%= message.device.try(:name) %></td>
+      <td><%= message.status %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
