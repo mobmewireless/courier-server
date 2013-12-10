@@ -15,9 +15,10 @@ To run this web application, you'll need:
 3.  A database server - preferably MySQL, since that's what this application has been tested with, though others such as
     SQLite and PostGRESql should work just fine.
 
-You'll also need to set up a Google project and enable the GCM service on it. Please refer
+You'll also need to set up a Google project, enable the GCM service on it, and create a 'registered app' with OAuth 2.0
+Client ID (Google login) and Server Key (pushing to GCM) credentials. Please refer
 [Google's excellent documentation](http://developer.android.com/google/gcm/gs.html "Google Cloud Messaging > Getting Started")
-to do this. Once you've set up the GCM service, and have your API key in hand, you can start the setup process.
+to do this. Once you've set up the GCM service, and have your API credentials in hand, you can start the setup process.
 
 # Setup
 
@@ -29,8 +30,10 @@ The following steps assume that you've completed the prerequisites.
     ``COURIER_SECRET_TOKEN``. You can do this easily by creating a ``.env`` file in the repository root with the
     contents ``COURIER_SECRET_TOKEN=<GENERATED TOKEN>``. The environment variable will be set when the application is
     loaded.
-4.  Configure your GCM API Key and Project Number with the environment variables ``COURIER_GCM_API_KEY`` and
-    ``COURIER_GCM_PROJECT_NUMBER``. As in step 3, you can write these into the ``.env`` file.
+4.  Configure your Google keys with environment variables ``GOOGLE_PROJECT_NUMBER`` (the number identifying your google
+    project); ``GOOGLE_OAUTH_CLIENT_ID``, ``GOOGLE_OAUTH_CLIENT_SECRET``
+    (for Google OAuth2 Login); and ``GOOGLE_SERVER_KEY`` (for GCM access). As in step 3, you can write these into the
+    ``.env`` file.
 5.  Configure the list of e-mail addresses that you wish to allow access to the interface (login is managed with Google
     OAuth 2.0). Set the e-mail addresses as comma-separated values in the environment variable
     ``COURIER_ALLOWED_USERS``.
